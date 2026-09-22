@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <form action="3_3prueba.php" method="get">
-        Numero de Triangulos
-        <input name="triangulos">
-        Numero de Columnas
-        <input name="columnas">
-        <button type="submit">Enviar</button>
-    </form>
+<?php
+$intColumnas = $_GET["columnas"];
 
-</body>
-</html>
+for ($i = 1; $i <= $intColumnas; $i++) {
+    for ($j = 1; $j <= $i; $j++) {
+        echo "* ";
+    }
+    echo "<br>";
+}
+
+for ($j = 1; $j <= $intColumnas; $j++) {
+    for ($k = $intColumnas; $k - 1 >= $j; $k--) {
+        echo "* ";
+    }
+    echo "<br>";
+}
+
+
+?>
