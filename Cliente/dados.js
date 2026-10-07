@@ -3,12 +3,7 @@ function numeroDados (){
 }
 
 function numeroCaras (){
-    let numCaras = prompt("Cuantas caras tiene los dados");
-    while (numCaras < 6){
-        numCaras = prompt("El numero tiene que se de 6 o mas caras");
-    }
-
-    return numCaras;
+    return prompt("Cuantas caras tiene los dados");
 }
 
 function numeroRondas (){
@@ -16,10 +11,10 @@ function numeroRondas (){
 }
 
 function tirarDados (numeroCaras){
-    let dadoRandom = Math.floor(Math.random() * numeroCaras + 1);
-    console.log("Dado tirado " + dadoRandom);
-    return dadoRandom;
+    return Math.floor(Math.random() * numeroCaras + 1);
 }
+
+
 
 function juego (numDados = 2, numCaras = 6, rondas = 5) {
     let victoriasJug1 = 0;
@@ -32,20 +27,29 @@ function juego (numDados = 2, numCaras = 6, rondas = 5) {
             tiradaJug1 = tirarDados(numCaras);
             tiradaJug2 = tirarDados(numCaras);
             resultadoJug1 = resultadoJug1 + tiradaJug1;
-            alert("Has sacado un " + tiradaJug1 + " y tu resultado total de momento es " + resultadoJug1);
+            alert("Jugador 1: Has sacado un " + tiradaJug1 + " y tu resultado total de momento es " + resultadoJug1);
 
             resultadoJug2 = resultadoJug2 + tiradaJug2;
-            console.log("Has sacado un " + tiradaJug2);
-            console.log("Resultado Jugador 2 " + resultadoJug2);
+            alert("Jugador 2: Has sacado un " + tiradaJug2 + " y tu resultado de momento es " + resultadoJug2);
         }
+
         if (resultadoJug1 > resultadoJug2) {
             victoriasJug1++;
-            console.log("Victorias Jugador 1 " + victoriasJug1);
+            alert("Ronda ganada por el Jugador 1\n" +
+                "Rondas ganadas:\n" +
+                "Jugador 1: " + victoriasJug1
+                +"\nJugador 2: " + victoriasJug2);
         } else if (resultadoJug2 > resultadoJug1) {
             victoriasJug2++;
-            console.log("Victorias Jugador 2 " + victoriasJug2);
+            alert("Ronda ganada por el Jugador 2\n" +
+                " Rondas ganadas:\n" +
+                "Jugador 1: " + victoriasJug1
+                +"\nJugador 2: " + victoriasJug2);
         } else {
-            console.log("Empate");
+            alert("Empate\n" +
+                "Rondas ganadas:\n" +
+                "Jugador 1: " + victoriasJug1
+                +"\nJugador 2: " + victoriasJug2);
         }
     }
 
